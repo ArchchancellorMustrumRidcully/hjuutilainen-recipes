@@ -36,6 +36,9 @@
 			<true/>
 			<key>unattended_uninstall</key>
 			<true/>
+      <key>postuninstall_script</key>
+      <string>#!/bin/bash
+rm -rf /Applications/TeamViewer.app</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
@@ -66,18 +69,6 @@
 			</dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_ids_set_optional_true</key>
-				<array>
-					<string>com.teamviewer.RemotePrintingPackage</string>
-					<string>com.teamviewer.teamviewerSilentInstaller</string>
-				</array>
-			</dict>
-			<key>Processor</key>
-			<string>com.github.keeleysam.recipes.GoogleTalkPlugin/MunkiPkginfoReceiptsEditor</string>
 		</dict>
 	</array>
 </dict>
