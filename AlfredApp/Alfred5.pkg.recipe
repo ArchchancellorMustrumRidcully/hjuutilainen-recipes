@@ -3,18 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of CheatSheet and builds a package.</string>
+	<string>Downloads the current release version of Alfred 5 and creates a package.</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.pkg.CheatSheet</string>
+	<string>io.github.hjuutilainen.pkg.Alfred5</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>CheatSheet</string>
+		<string>Alfred5</string>
+		<key>MAJOR_VERSION</key>
+		<string>5</string>
+		<key>RELEASE_TYPE</key>
+		<string>stable</string>
 	</dict>
-	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.CheatSheet</string>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.6.1</string>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.Alfred5</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -33,13 +37,15 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>Copier</string>
+			<string>Unarchiver</string>
 			<key>Arguments</key>
 			<dict>
-				<key>source_path</key>
-				<string>%pathname%/CheatSheet.app</string>
+				<key>archive_path</key>
+				<string>%pathname%</string>
 				<key>destination_path</key>
-				<string>%pkgroot%/Applications/CheatSheet.app</string>
+				<string>%pkgroot%/Applications</string>
+				<key>purge_destination</key>
+				<true/>
 			</dict>
 		</dict>
 		<dict>
@@ -48,7 +54,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>info_path</key>
-				<string>%pkgroot%/Applications/CheatSheet.app</string>
+				<string>%pkgroot%/Applications/Alfred 5.app</string>
 				<key>plist_keys</key>
 				<dict>
 					<key>CFBundleShortVersionString</key>
@@ -87,6 +93,17 @@
 						</dict>
 					</array>
 				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				</array>
 			</dict>
 		</dict>
 	</array>

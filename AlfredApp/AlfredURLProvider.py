@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/autopkg/python
 #
 # Copyright 2013 Hannes Juutilainen
 #
@@ -41,6 +41,10 @@ UPDATE_URLS = {
     "4": {
         "stable": "https://www.alfredapp.com/app/update4/general.xml",
         "prerelease": "https://www.alfredapp.com/app/update4/prerelease.xml",
+    },
+    "5": {
+        "stable": "https://www.alfredapp.com/app/update5/general.xml",
+        "prerelease": "https://www.alfredapp.com/app/update5/prerelease.xml",
     },
 }
 
